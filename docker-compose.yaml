@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  consul-service:
+    build: consul-service
+    image: dm848/consul-service:v1
+
+  cs-jolie:
+    depends_on:
+    - "consul-service"
+    build: cs-jolie
+    image: dm848/cs-jolie:v1
+
+  cs-jolie-postgresql:
+    depends_on:
+    - "cs-jolie"
+    build: cs-jolie-postgresql
+    image: dm848/cs-jolie-postgresql:v1
+
+  cs-jolie-postgresql-mysql:
+    depends_on:
+    - "cs-jolie-postgresql"
+    build: cs-jolie-postgresql-mysql
+    image: dm848/cs-jolie-postgresql-mysql:v1
+
+  cs-nginx:
+    depends_on:
+    - "consul-service"
+    build: cs-nginx
+    image: dm848/cs-nginx:v1

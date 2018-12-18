@@ -12,6 +12,12 @@ services:
     build: cs-jolie
     image: dm848/cs-jolie:v1
 
+  cs-jolie-kubectl:
+    depends_on:
+    - "cs-jolie"
+    build: cs-jolie-kubectl
+    image: dm848/cs-jolie-kubectl:v1.0.1
+
   cs-jolie-postgresql:
     depends_on:
     - "cs-jolie"

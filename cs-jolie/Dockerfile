@@ -20,7 +20,7 @@ RUN apk add zip
 RUN jolie release.ol ../jolie-git
 
 # move to smaller image with consul service support through containerpilot
-FROM dm848/consul-service:v1
+FROM dm848/consul-service:v2
 RUN apk --update add openjdk8-jre
 
 WORKDIR /

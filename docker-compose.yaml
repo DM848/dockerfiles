@@ -4,13 +4,18 @@ services:
 
   consul-service:
     build: consul-service
-    image: dm848/consul-service:v1
+    image: dm848/consul-service:v3
+    # v1: containerpilot
+    # v2: nothing
+    # v3: consul-template
 
   cs-jolie:
     depends_on:
     - "consul-service"
     build: cs-jolie
-    image: dm848/cs-jolie:v1
+    image: dm848/cs-jolie:v2
+    # v1: containerpilot
+    # v2: nothing
 
   cs-jolie-kubectl:
     depends_on:

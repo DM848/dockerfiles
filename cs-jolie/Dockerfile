@@ -1,4 +1,4 @@
-FROM openjdk:alpine as JolieBuild
+FROM openjdk:alpine
 WORKDIR /
 
 # Download and install Jolie. We need it for running the release tools.
@@ -18,18 +18,3 @@ RUN ant jar
 WORKDIR /release_tools
 RUN apk add zip
 RUN jolie release.ol ../jolie-git
-
-# move to smaller image with consul service support through containerpilot
-FROM dm848/consul-service:v2
-RUN apk --update add openjdk8-jre
-
-WORKDIR /
-COPY --from=JolieBuild /release_tools/release/jolie_installer.jar .
-ENV JOLIE_HOME /usr/lib/jolie
-RUN java \
-    -jar jolie_installer.jar \
-    -jh /usr/lib/jolie \
-    -jl /usr/bin && \
-    rm /jolie_installer.jar && \
-    # verify jolie
-    jolie --version

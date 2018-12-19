@@ -12,6 +12,10 @@ services:
     build: cs-consul-template
     image: dm848/cs-consul-template:v1
 
+  cs-jenkins-kubectl:
+    build: cs-jenkins-kubectl/docker
+    image: dm848/cs-jenkins-kubectl:v1
+
   jolie-builder:
     build: cs-jolie
     image: dm848/jolie-builder:v1.7.0

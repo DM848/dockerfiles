@@ -1,4 +1,4 @@
-FROM dm848/consul-service:v1
+FROM dm848/consul-service:v1.1.0
 
 # Install ContainerPilot
 ENV CONTAINERPILOT_VER 3.8.0

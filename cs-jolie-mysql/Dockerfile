@@ -1,4 +1,4 @@
-FROM dm848/cs-jolie:v1
+FROM dm848/cs-jolie:v1.1.0
 
 ARG MYSQL_DRIVER_VERSION=8.0.11
 RUN wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz" && \

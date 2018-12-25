@@ -2,7 +2,7 @@
 set -e
 
 # setup basic pod variables/configuration
-sh pod-setup-entrypoint.sh
+sh /consul-service/pod-setup-entrypoint.sh
 
 # configure kubectl
 kubectl config set-cluster default \

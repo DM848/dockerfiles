@@ -6,5 +6,6 @@ RUN chmod +x kubectl
 RUN mv kubectl /usr/bin/kubectl
 
 # this entrypoint file will authenticates against the google cloud k8s cluster
-COPY jolie-v1-kubectl-entrypoint.sh .
-ENTRYPOINT ["./jolie-v1-kubectl-entrypoint.sh"]
+WORKDIR /kubectl-setup
+COPY jolie-v1-kubectl-entrypoint.sh setup.sh
+ENTRYPOINT ["/kubectl-setup/setup.sh"]

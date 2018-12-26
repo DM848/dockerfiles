@@ -4,13 +4,13 @@ services:
 
   consul-service:
     build: consul-service
-    image: dm848/consul-service:v1.1.0
+    image: dm848/consul-service:v1.2.0
   cs-containerpilot:
     build: cs-containerpilot
-    image: dm848/cs-containerpilot:v1.1.0
+    image: dm848/cs-containerpilot:v1.2.0
   cs-consul-template:
     build: cs-consul-template
-    image: dm848/cs-consul-template:v1.1.0
+    image: dm848/cs-consul-template:v1.2.0
 
   jolie-builder:
     build: cs-jolie
@@ -19,38 +19,38 @@ services:
     depends_on:
     - "cs-containerpilot"
     build: cs-jolie/v1
-    image: dm848/cs-jolie:v1.1.0
+    image: dm848/cs-jolie:v1.2.0
   cs-jolie-v2:
     depends_on:
     - "cs-consul-template"
     build: cs-jolie/v2
-    image: dm848/cs-jolie:v2.1.0
+    image: dm848/cs-jolie:v2.2.0
   cs-jolie-v3:
     depends_on:
     - "consul-service"
     build: cs-jolie/v3
-    image: dm848/cs-jolie:v3.1.0
+    image: dm848/cs-jolie:v3.2.0
 
   cs-jolie-kubectl:
     depends_on:
     - "cs-jolie-v1"
     build: cs-jolie-kubectl
-    image: dm848/cs-jolie-kubectl:v1.1.1
+    image: dm848/cs-jolie-kubectl:v1.2.0
 
   cs-jolie-mysql:
     depends_on:
     - "cs-jolie-v1"
     build: cs-jolie-mysql
-    image: dm848/cs-jolie-mysql:v1.1.0
+    image: dm848/cs-jolie-mysql:v1.2.0
 
   cs-jolie-postgresql:
     depends_on:
     - "cs-jolie-v1"
     build: cs-jolie-postgresql
-    image: dm848/cs-jolie-postgresql:v1.1.0
+    image: dm848/cs-jolie-postgresql:v1.2.0
 
   cs-jolie-postgresql-mysql:
     depends_on:
     - "cs-jolie-postgresql"
     build: cs-jolie-postgresql-mysql
-    image: dm848/cs-jolie-postgresql-mysql:v1.1.0
+    image: dm848/cs-jolie-postgresql-mysql:v1.2.0

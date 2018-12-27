@@ -1,4 +1,4 @@
-FROM dm848/cs-jolie:v1.2.0
+FROM dm848/cs-jolie:v1.3.0
 
 # install kubectl
 RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"

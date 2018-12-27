@@ -1,5 +1,5 @@
 # andersfylling/consulctl uses alpine:3.8
-FROM andersfylling/consulctl:v0.2.0
+FROM andersfylling/consulctl:v0.3.0
 WORKDIR /consul-service
 
 # common health checking tool

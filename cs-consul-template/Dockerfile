@@ -1,4 +1,4 @@
-FROM dm848/consul-service:v1.2.0
+FROM dm848/consul-service:v1.3.0
 
 # Consul-template
 ARG CONSUL_TEMPLATE_VERSION=0.19.5
